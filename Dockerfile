@@ -1,11 +1,10 @@
 FROM centos:6
 
 MAINTAINER mileswang87
-RUN yum -y -q update
 RUN yum -y -q install gcc gcc-java libgcj libgcj-devel gcc-c++ \
     make flex bison gperf ruby openssl-devel freetype-devel \
     fontconfig-devel libicu-devel sqlite-devel libpng-devel libjpeg-devel \
-    wget unzip git
+    wget unzip git && yum clean all -y
 
 RUN mkdir /temp
 RUN cd /temp && wget https://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/pdftk-2.02-src.zip && unzip pdftk-2.02-src.zip \
